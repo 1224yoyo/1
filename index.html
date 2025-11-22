@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>抓取食譜名稱</title>
+</head>
+<body>
+<h1>食譜列表</h1>
+<input id="go" type="text">
+<button onclick="put()">增加</button>
+<button onclick="finds()">刷新</button>
+<script>
+async function finds() {
+    try {
+        // 使用正確 endpoint
+        response = await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
+        data = await response.json();
+        console.log("原始資料:", data);
+
+        list= data;  // data 就是陣列
+        console.log("變數 myData:", list);
+
+        // 將資料渲染到網頁
+        ul = document.createElement("ul");
+        list.forEach(item => {
+            li = document.createElement("li");
+            li.textContent = item.name; // 只顯示名稱
+            ul.appendChild(li);
+        });
+        document.body.appendChild(ul);
+
+    } catch (err) {
+        console.error("抓取資料錯誤:", err);
+    }
+}
+finds();
+function newdata(names){
+    fetch("https://6921b829512fb4140be121e3.mockapi.io/items", {
+        method:'POST',              // 新增
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: names })
+    })
+    .then(res => res.json())
+    .then(data => console.log("新增結果:", data))
+    .catch(console.error);
+}
+
+
+function put(){
+    text=document.getElementById('go').value;
+    newdata(text)
+}
+
+
+</script>
+
+</body>
+</html>
