@@ -53,6 +53,7 @@
         <p>用戶名子</p><input type="text" id="lo">
         <p>密碼</p><input type="text" id="hdd"><p>創造帳號</p>
         <button id="btn">登入</button>
+        <div id="ok" style="display:none;">成功</div>
     </div>
 <script>
 lists={}
@@ -73,7 +74,18 @@ async function finds() {
 finds()
     
 document.getElementById('btn').addEventListener("click",()=>{
-    if(lists.length==0){alert("發生錯誤請稍後再試")}else{alert(JSON.stringify(lists))}
+    if(lists.length==0){alert("發生錯誤請稍後再試")}
+    else{
+        
+        user=document.getElementById("lo").value;
+        pass=document.getElementById("hdd").value;
+
+        let found = lists.find(item => item[user] == Number(pass));
+        if(found){
+            document.getElementById("ok").style.display = "block";
+        }
+
+    }
 
 })
 
