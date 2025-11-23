@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>抓取食譜名稱</title>
 </head>
 <body>
-<h1>食譜列表</h1>
-<input id="go" type="text">
-<button onclick="put()">增加</button>
-<button onclick="finds()">刷新</button>
+<div id="login">
+    <h1>登入</h1>
+    <style>body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #9bfeba);
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #login{
+            background-color:white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 300px;
+            text-align: center;
+            font-size: 15px;
+        }
+        #login h1 { margin-bottom: 25px; color: #2d3436;}
+        #login p { margin: 10px 0 5px 0; font-weight: bold; color: #636e72; }
+        
+        #login button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #0984e3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        #login input {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 2px solid #dfe6e9;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+        #login button:hover { background-color: #74b9ff; }
+        </style>
+        <p>用戶名子</p><input type="text" id="lo">
+        <p>密碼</p><input type="text" id="hdd">
+        <button id="btn">登入</button>
+    </div>
 <script>
 async function finds() {
     try {
@@ -18,7 +64,7 @@ async function finds() {
 
         list= data;  // data 就是陣列
         console.log("變數 myData:", list);
-
+        ui.innerHTML=''
         // 將資料渲染到網頁
         ul = document.createElement("ul");
         list.forEach(item => {
@@ -32,7 +78,7 @@ async function finds() {
         console.error("抓取資料錯誤:", err);
     }
 }
-finds();
+
 function newdata(names){
     fetch("https://6921b829512fb4140be121e3.mockapi.io/items", {
         method:'POST',              // 新增
@@ -45,13 +91,14 @@ function newdata(names){
 }
 
 
-function put(){
-    text=document.getElementById('go').value;
-    newdata(text)
-}
+
 
 
 </script>
 
-</body>
+
 </html>
+
+
+
+
