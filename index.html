@@ -58,38 +58,19 @@
 async function finds() {
     try {
         // 使用正確 endpoint
-        response = await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
-        data = await response.json();
+        let response = await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
+        let data = await response.json();
         console.log("原始資料:", data);
 
-        list= data;  // data 就是陣列
-        console.log("變數 myData:", list);
-        ui.innerHTML=''
-        // 將資料渲染到網頁
-        ul = document.createElement("ul");
-        list.forEach(item => {
-            li = document.createElement("li");
-            li.textContent = item.name; // 只顯示名稱
-            ul.appendChild(li);
-        });
-        document.body.appendChild(ul);
+        list=data;  // data 就是陣列
 
     } catch (err) {
         console.error("抓取資料錯誤:", err);
     }
 }
 
-function newdata(names){
-    fetch("https://6921b829512fb4140be121e3.mockapi.io/items", {
-        method:'POST',              // 新增
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: names })
-    })
-    .then(res => res.json())
-    .then(data => console.log("新增結果:", data))
-    .catch(console.error);
-}
-
+finds()
+console.log(list)
 
 
 
