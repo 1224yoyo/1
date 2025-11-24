@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p>名字</p><input type="text" id="texts1">
+        <p>密碼</p><input type="text" id="texts2"><button id="buttons">新增</button>
+    </body>
+    <script>
+        
+        document.getElementById("buttons").addEventListener("click",()=>{
+            let u=document.getElementById("texts1").value;
+            let p=document.getElementById("texts2").value;
+            console.log(u,p)
+            
+        })
+    </script>
+</html>
