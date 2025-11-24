@@ -51,7 +51,7 @@
         #login button:hover { background-color: #74b9ff; }
         </style>
         <p>用戶名子</p><input type="text" id="lo">
-        <p>密碼</p><input type="text" id="hdd"><p>創造帳號</p>
+        <p>密碼</p><input type="text" id="hdd"><a href="creatuser.html">註冊帳號</a>
         <button id="btn">登入</button>
         <div id="ok" style="display:none;">成功</div>
     </div>
@@ -80,9 +80,11 @@ document.getElementById('btn').addEventListener("click",()=>{
         user=document.getElementById("lo").value;
         pass=document.getElementById("hdd").value;
 
-        let found = lists.find(item => item[user] == Number(pass));
+        let found = lists.find(item => item.name == user && item.userpass == pass);
         if(found){
             document.getElementById("ok").style.display = "block";
+        }else{
+            document.getElementById("ok").style.display = "none";
         }
 
     }
