@@ -10,8 +10,8 @@
     <script>
         let data=[];
         async function init(){
-        let response=await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
-        let data=await response.json();
+        response=await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
+        data=await response.json();
     };
         
         
@@ -26,7 +26,7 @@
             let found = data.find(item => item.name == u);
             if(!found && u && p){
                 let un={"name":u,"userpass":p}
-                console.log(un)
+                console.log(un,"成功")
 
             await fetch("https://6921b829512fb4140be121e3.mockapi.io/items",{
             method:"POST",
@@ -34,7 +34,7 @@
             "Content-Type": "application/json"},
             body: JSON.stringify(un)}
         )
-    }
+    }else{closed.log("失敗")}
 }
 )
     init();
