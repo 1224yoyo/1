@@ -42,6 +42,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            transition: transform 0.05s ease;
             
              
         }
@@ -55,6 +56,7 @@
             font-size: 15px;
             outline: none;
             margin-bottom: 15px;
+            transition: transform 0.2s ease, easeborder-color 0.2s ease;
         }
         
         
@@ -62,15 +64,27 @@
             display:none;
             width:100%;
             height:100%;
-            background-color:#fefeff;
+            background-color:#d7d7d8;
         }
+        #hbtn{height:40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            position: absolute;
+            right:0px;
+        }
+        #login input:focus {transform: scale(1.04);border-color:#aaaaaa;}
+        
         </style>
         
         <p>用戶名子</p><input type="text" id="lo">
         <p>密碼</p><input type="text" id="hdd"><a href="creatuser.html">註冊帳號</a>
         <button id="btn" type="button">登入</button>
         </div>
-        <div id="pair" class="pair">成功了</div>
+        <div id="pair" class="pair">
+            <div style="width:100%;height:40px;background-color: #e8e6e6;"><button id="hbtn">註銷帳號</button></div>
+        </div>
     
 <script>
 lists={}
