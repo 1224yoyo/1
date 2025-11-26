@@ -8,7 +8,7 @@
         <p>密碼</p><input type="text" id="texts2"><button id="buttons">新增</button>
     </body>
     <script>
-        let data=[];
+        data=[];
         async function init(){
         response=await fetch("https://6921b829512fb4140be121e3.mockapi.io/items");
         data=await response.json();
@@ -28,13 +28,15 @@
                 let un={"name":u,"userpass":p}
                 console.log(un,"成功")
 
-            await fetch("https://6921b829512fb4140be121e3.mockapi.io/items",{
+            res=await fetch("https://6921b829512fb4140be121e3.mockapi.io/items",{
             method:"POST",
             headers: {
             "Content-Type": "application/json"},
-            body: JSON.stringify(un)}
-        )
-    }else{console.log("失敗")}
+            body: JSON.stringify(un)
+            })
+            let result = await res.json();
+            data.push(result);
+        }else{console.log("失敗")}
 }
 )
     init();
