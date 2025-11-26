@@ -42,9 +42,7 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            transition: transform 0.1s ease, background-color 0.1s ease;
-            -webkit-tap-highlight-color: transparent; /* 去掉藍色高亮 */
-            touch-action: manipulation;
+            
              
         }
         #login input {
@@ -59,7 +57,7 @@
             margin-bottom: 15px;
         }
         
-        #login button:active { transform: scale(0.95);background-color: #0873c7}
+        
         #pair{
             display:none;
             width:100%;
@@ -91,8 +89,14 @@ async function finds() {
 }
 
 finds()
-    
+
+
+
 document.getElementById('btn').addEventListener("click",()=>{
+    document.getElementById("btn").style.transform="scale(0.95)";
+    setTimeout(() => {
+    document.getElementById("btn").style.transform="scale(1)";
+    }, 100);
     if(lists.length==0){alert("發生錯誤請稍後再試")}
     else{
         
