@@ -42,8 +42,10 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            transition: 0.3s;
-            touch-action: manipulation;  
+            transition: transform 0.1s ease, background-color 0.1s ease;
+            -webkit-tap-highlight-color: transparent; /* 去掉藍色高亮 */
+            touch-action: manipulation;
+             
         }
         #login input {
             display: block;
@@ -56,8 +58,8 @@
             outline: none;
             margin-bottom: 15px;
         }
-        #login button:hover { background-color: #74b9ff; }
-        #login button:active { background-color: #0984e3;}
+        
+        #login button:active { transform: scale(0.95);background-color: #0873c7}
         #pair{
             display:none;
             width:100%;
